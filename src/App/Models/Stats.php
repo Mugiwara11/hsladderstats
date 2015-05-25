@@ -19,11 +19,13 @@ class Stats implements ModelsInterface
 		$usuarios = $model_usuarios->getAllUsuarios();
 
 		foreach ($usuarios as $usuario) {
-			print_r($usuario['username']);
 			$url = $this->createUrlFromUserToken($usuario['username'], $usuario['token']);
 			$data = $this->getJsonFromUrl($url);
-			// aqui explotas los datos y los metes a la base de datos tal que asi
-			$statement = $this->db->prepare("UPDATE stats_totales (total_wins, total_losses, total_games) SET (:total_wins, :total_losses, :total_games) WHERE 'stats_totales.token_usuario' ='".$usuario['token']."'");
+			print_r( $usuario['token']);
+			print_r( $data['stats']['overall']['wins']);
+			print_r( $data['stats']['overall']['losses']);
+			print_r( $data['stats']['overall']['total']);			
+			$statement = $this->db->prepare("UPDATE stats_totales SET total_wins = :total_wins, total_losses = :total_losses, total_games = :total_games WHERE 'stats_totales.token_usuario' ='".$usuario['token']."'");
 			$values = array(
 			    "total_wins" => $data['stats']['overall']['wins'],
 			    "total_losses" => $data['stats']['overall']['losses'],
