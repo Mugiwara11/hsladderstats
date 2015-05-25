@@ -5,18 +5,19 @@ use Libs\ModelsInterface;
 use Models\Stats;
 
 class Indice
-{	
+{
 	public $model;
 	public $data;
+	const TEMPLATE = 'indice.html';
 
 	public function __construct(ModelsInterface $model)
 	{
 		$this->model = $model;
-		$this->data = $this->model->getAllStats();				
+		$this->data = $this->model->getAllStats();
+		$this->printTemplate();
 	}
-	
+
+	public function printTemplate() {
+		include APP_PATH."\Templates\indice.html";
+	}
 }
-
-include APP_PATH."\Templates\indice.html";
-
-

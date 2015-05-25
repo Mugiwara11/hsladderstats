@@ -6,7 +6,5 @@ use Models\Usuarios;
 
 class FormularioParticipa
 {
-	
-}
 
-include APP_PATH."\Templates\participa.html";
+}

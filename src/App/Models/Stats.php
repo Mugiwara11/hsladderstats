@@ -3,7 +3,6 @@ namespace Models;
 
 use Libs\ModelsInterface;
 use Libs\DatabaseConnector;
-use Models\Usuarios;
 
 class Stats implements ModelsInterface
 {
@@ -15,7 +14,7 @@ class Stats implements ModelsInterface
         $this->db = DatabaseConnector::connect();
 	}
 
-	public function saveStats($usuarios){
+	public function saveStats(){
 		$model_usuarios = new Usuarios;
 		$usuarios = $model_usuarios->getAllUsuarios();
 
@@ -23,13 +22,13 @@ class Stats implements ModelsInterface
 			$url = $this->createUrlFromUserToken($usuario['username'], $usuario['token']);
 			$data = $this->getJsonFromUrl($url);
 			$data_totales = $data[0];
-			// aqui explotas los datos y los metes a la base de datos tal que asi			
+			// aqui explotas los datos y los metes a la base de datos tal que asi
 			$statemet = $this->db->prepare("UPDATE stats_totales SET (:dato1, :dato2, :dato3) WHERE 'stats_totales.token_usuario' =".$usuario['token']);
 			$values = array(
 			    "dato1" => $data_totales[0], //'dato1'
 			    "dato2" => $data_totales[1], //'dato2'
 			    "dato3" => $data_totales[2] //'dato3'
-			);						
+			);
 			if(!$statement->execute($values))
 				throw new Exception('Error al insertar los valores');
 		}
