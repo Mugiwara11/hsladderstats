@@ -9,7 +9,7 @@ $partes_url = parser($_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI']);
 try {
     switch($partes_url[0]) {
         case '':
-            $model = new Model\Stats;
+            $model = new Models\Stats;
             $controller = new Controllers\SaveStats($model);
             $view = new Views\Indice($model);
         break;

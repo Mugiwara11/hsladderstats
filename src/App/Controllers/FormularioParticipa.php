@@ -1,6 +1,6 @@
 <?php
-use App\Libs\ModelsInterface;
-use App\Models\Usuarios;
+use Libs\ModelsInterface;
+use Models\Usuarios;
 
 class FormuarioParticipa
 {

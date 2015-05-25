@@ -1,22 +1,12 @@
 <?php
-use App\Libs\ModelsInterface;
-use App\Models\Usuarios;
+use Libs\ModelsInterface;
+use Models\Usuarios;
 
 class Stats implements ModelsInterface
 {
-	const BOT_API_URL_STATS = 'https://trackobot.com/profile/stats/classes.json?time_range=current_month&username={username}&token={token}';
+	const BOT_API_URL_STATS = 'https://trackobot.com/profile/stats/classes.json?mode=ranked&time_range=current_month&username={username}&token={token}';
 
-	public $stats_total;
-	public $stats_rogue;
-	public $stats_warlock;
-	public $stats_warrrior;
-	public $stats_druid;
-	public $stats_shaman;
-	public $stats_hunter;
-	public $stats_pala;
-	public $stats_priest;
-	public $stats_mage;
-
+	public $data;
 	public $db;
 
 	public function __construct(){
@@ -29,13 +19,14 @@ class Stats implements ModelsInterface
 
 		foreach ($usuarios as $usuario) {
 			$url = $this->createUrlFromUserToken($usuario['username'], $usuario['token']);
-			$data = $this->getJsonFromUrl($url);
+			$this->$data = $this->getJsonFromUrl($url);
+			$data_totales = $data[0];
 			// aqui explotas los datos y los metes a la base de datos tal que asi
-			$statemet = $this->db->prepare('INSERT INTO nombre_tabla (dato1, dato2, dato3) VALUES (:dato1, :dato2, :dato3)');
+			$statemet = $this->db->prepare('INSERT INTO stats_totales (total_wins, total_losses, total_games) VALUES (:dato1, :dato2, :dato3)');
 			$values = array(
-			    "dato1" => $data['dato1'],
-			    "dato2" => $data['dato2'],
-			    "dato3" => $data['dato3']
+			    "dato1" => $data_totales[0], //'dato1'
+			    "dato2" => $data_totales[1], //'dato2'
+			    "dato3" => $data_totales[2] //'dato3'
 			);
 			if(!$statement->execute($values))
 				throw new Exception('Error al insertar los valores');
@@ -48,5 +39,9 @@ class Stats implements ModelsInterface
 
 	private function createUrlFromUserToken($username, $token) {
 		return str_replace(array('{username}', '{token}'), array($username, $token), self::BOT_API_URL_STATS);
+	}
+
+	public function getStats(){
+		return $data;
 	}
 }

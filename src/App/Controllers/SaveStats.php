@@ -1,6 +1,6 @@
 <?php
-use App\Libs\ModelsInterface;
-use App\Models\Stats;
+use Libs\ModelsInterface;
+use Models\Stats;
 
 class SaveStats
 {

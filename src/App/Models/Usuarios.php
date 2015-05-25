@@ -1,6 +1,6 @@
 <?php
-use App\Libs\ModelsInterface;
-use App\Libs\DatabaseConnector;
+use Libs\ModelsInterface;
+use Libs\DatabaseConnector;
 
 class Usuarios implements ModelsInterface
 {
