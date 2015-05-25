@@ -23,13 +23,13 @@ class Stats implements ModelsInterface
 			$url = $this->createUrlFromUserToken($usuario['username'], $usuario['token']);
 			$data = $this->getJsonFromUrl($url);
 			$data_totales = $data[0];
-			// aqui explotas los datos y los metes a la base de datos tal que asi
-			$statemet = $this->db->prepare('INSERT INTO stats_totales (total_wins, total_losses, total_games) VALUES (:dato1, :dato2, :dato3)');
+			// aqui explotas los datos y los metes a la base de datos tal que asi			
+			$statemet = $this->db->prepare("UPDATE stats_totales SET (:dato1, :dato2, :dato3) WHERE 'stats_totales.token_usuario' =".$usuario['token']);
 			$values = array(
 			    "dato1" => $data_totales[0], //'dato1'
 			    "dato2" => $data_totales[1], //'dato2'
 			    "dato3" => $data_totales[2] //'dato3'
-			);
+			);						
 			if(!$statement->execute($values))
 				throw new Exception('Error al insertar los valores');
 		}
@@ -44,7 +44,7 @@ class Stats implements ModelsInterface
 	}
 
 	public function getAllStats(){
-		$gsent = $this->db->prepare("SELECT * FROM stats_totales");
+		$gsent = $this->db->prepare("SELECT (total_wins, total_losses, total_games) FROM stats_totales");
         $gsent->execute();
         return $gsent->fetchAll();
 	}

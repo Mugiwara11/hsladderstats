@@ -1,6 +1,4 @@
 <?php
-namespace Models;
-
 use Libs\ModelsInterface;
 use Libs\DatabaseConnector;
 
@@ -19,6 +17,6 @@ class Usuarios implements ModelsInterface
     }
 
     public function saveUser($username, $token) {
-        echo 'salvo el usuario';
+        echo 'salvo el usuario'; //Aquí debería ir el insert a la tabla usuarios
     }
 }

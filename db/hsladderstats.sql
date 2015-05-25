@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: May 25, 2015 at 08:28 AM
+-- Generation Time: May 25, 2015 at 11:25 AM
 -- Server version: 5.5.41-log
 -- PHP Version: 5.6.8
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `stats_totales` (
 `id` int(15) NOT NULL,
+  `token_usuario` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `total_wins` int(1) NOT NULL,
   `total_losses` int(15) NOT NULL,
   `total_games` int(15) NOT NULL
@@ -54,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Indexes for table `stats_totales`
 --
 ALTER TABLE `stats_totales`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `token_usuario` (`token_usuario`);
 
 --
 -- Indexes for table `usuarios`

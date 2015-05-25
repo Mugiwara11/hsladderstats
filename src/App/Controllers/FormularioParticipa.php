@@ -4,7 +4,7 @@ namespace Controllers;
 use Libs\ModelsInterface;
 use Models\Usuarios;
 
-class FormuarioParticipa
+class FormularioParticipa
 {
     public $model;
 
