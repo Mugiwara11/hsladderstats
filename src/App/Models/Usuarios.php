@@ -18,7 +18,8 @@ class Usuarios implements ModelsInterface
         return $gsent->fetchAll();
     }
 
-    public function saveUser($username, $token) {
-        echo 'salvo el usuario'; //Aquí debería ir el insert a la tabla usuarios
+    public function saveUser($username, $token) {        
+        $statemet = $this->db->prepare("INSERT INTO usuarios (username , token) VALUES ('".$username."','".$token."')");
+        $statemet->execute();
     }
 }

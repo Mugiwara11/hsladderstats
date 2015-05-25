@@ -12,5 +12,6 @@ class SaveStats
         $this->model = $model;
         //recupero usuarios + token de la bd?
        	$this->model->saveStats(); //array_urls como parametro
+       	echo 'paso por savestats.php';
     }
 }

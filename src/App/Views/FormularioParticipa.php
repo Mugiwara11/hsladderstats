@@ -1,10 +1,15 @@
 <?php
 namespace Views;
 
-use Libs\ModelsInterface;
-use Models\Usuarios;
-
 class FormularioParticipa
 {
+	
+	public function __construct()
+	{
+		$this->printTemplate();
+	}
 
+	public function printTemplate() {
+		include APP_PATH."\Templates\participa.html";
+	}
 }

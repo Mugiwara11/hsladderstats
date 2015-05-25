@@ -26,10 +26,10 @@ try {
             if(!empty($_POST)) {
                 $model = new Models\Usuarios;
                 $controller = new Controllers\FormularioParticipa($model);
-                $view = new Views\FormularioParticipa($model);
+                $view = new Views\FormularioParticipa;
             }
             else {
-                $view = new Views\FormularioParticipa();
+                $view = new Views\FormularioParticipa;
             }
         break;
         default:
