@@ -21,5 +21,7 @@ class Usuarios implements ModelsInterface
     public function saveUser($username, $token) {        
         $statemet = $this->db->prepare("INSERT INTO usuarios (username , token) VALUES ('".$username."','".$token."')");
         $statemet->execute();
+        $statemet = $this->db->prepare("INSERT INTO stats_totales (token_usuario) VALUES ('".$token."')");
+        $statemet->execute();
     }
 }
