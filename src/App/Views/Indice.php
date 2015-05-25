@@ -8,10 +8,10 @@ class Indice
 {
 	public $model;
 	public $data;
-	const TEMPLATE = 'indice.html';
 
 	public function __construct(ModelsInterface $model)
 	{
+		echo 'estoy en indice.php';
 		$this->model = $model;
 		$this->data = $this->model->getAllStats();
 		$this->printTemplate();
