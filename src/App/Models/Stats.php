@@ -1,5 +1,8 @@
 <?php
+namespace Models;
+
 use Libs\ModelsInterface;
+use Libs\DatabaseConnector;
 use Models\Usuarios;
 
 class Stats implements ModelsInterface

@@ -1,4 +1,6 @@
 <?php
+namespace Models;
+
 use Libs\ModelsInterface;
 use Libs\DatabaseConnector;
 

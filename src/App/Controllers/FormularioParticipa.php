@@ -1,4 +1,6 @@
 <?php
+namespace Controllers;
+
 use Libs\ModelsInterface;
 use Models\Usuarios;
 
@@ -11,7 +13,7 @@ class FormuarioParticipa
         try {
             $this->model->saveUser($_POST['username'], $_POST['token']);
         }
-        catch(Exception $e) {
+        catch(\Exception $e) {
             die('te kill you la vida');
         }
     }

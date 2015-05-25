@@ -1,4 +1,6 @@
 <?php
+namespace Controllers;
+
 use Libs\ModelsInterface;
 use Models\Stats;
 
