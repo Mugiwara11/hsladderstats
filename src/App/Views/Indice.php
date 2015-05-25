@@ -10,6 +10,6 @@ class Indice
 	public function __construct(ModelsInterface $model)
 	{
 		$this->model = $model;
-		$this->data = $this->model->getStats();	
+		$this->data = $this->model->getAllStats();	
 	}
 }

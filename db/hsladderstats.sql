@@ -1,34 +1,81 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Versión del servidor:         5.5.42 - MySQL Community Server (GPL)
--- SO del servidor:              Win32
--- HeidiSQL Versión:             9.1.0.4867
--- --------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 4.2.7
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:3306
+-- Generation Time: May 25, 2015 at 08:28 AM
+-- Server version: 5.5.41-log
+-- PHP Version: 5.6.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
--- Volcando estructura de base de datos para hsladderstats
-CREATE DATABASE IF NOT EXISTS `hsladderstats` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
-USE `hsladderstats`;
+--
+-- Database: `hsladderstats`
+--
 
+-- --------------------------------------------------------
 
--- Volcando estructura para tabla hsladderstats.usuarios
+--
+-- Table structure for table `stats_totales`
+--
+
+CREATE TABLE IF NOT EXISTS `stats_totales` (
+`id` int(15) NOT NULL,
+  `total_wins` int(1) NOT NULL,
+  `total_losses` int(15) NOT NULL,
+  `total_games` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuarios`
+--
+
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `username` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `token` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `fecha_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
--- Volcando datos para la tabla hsladderstats.usuarios: ~0 rows (aproximadamente)
-DELETE FROM `usuarios`;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `stats_totales`
+--
+ALTER TABLE `stats_totales`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username` (`username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `stats_totales`
+--
+ALTER TABLE `stats_totales`
+MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

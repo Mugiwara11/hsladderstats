@@ -6,7 +6,6 @@ class Stats implements ModelsInterface
 {
 	const BOT_API_URL_STATS = 'https://trackobot.com/profile/stats/classes.json?mode=ranked&time_range=current_month&username={username}&token={token}';
 
-	public $data;
 	public $db;
 
 	public function __construct(){
@@ -19,7 +18,7 @@ class Stats implements ModelsInterface
 
 		foreach ($usuarios as $usuario) {
 			$url = $this->createUrlFromUserToken($usuario['username'], $usuario['token']);
-			$this->$data = $this->getJsonFromUrl($url);
+			$data = $this->getJsonFromUrl($url);
 			$data_totales = $data[0];
 			// aqui explotas los datos y los metes a la base de datos tal que asi
 			$statemet = $this->db->prepare('INSERT INTO stats_totales (total_wins, total_losses, total_games) VALUES (:dato1, :dato2, :dato3)');
@@ -41,7 +40,9 @@ class Stats implements ModelsInterface
 		return str_replace(array('{username}', '{token}'), array($username, $token), self::BOT_API_URL_STATS);
 	}
 
-	public function getStats(){
-		return $data;
+	public function getAllStats(){
+		$gsent = $this->db->prepare("SELECT * FROM stats_totales");
+        $gsent->execute();
+        return $gsent->fetchAll();
 	}
 }
