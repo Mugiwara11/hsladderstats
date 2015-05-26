@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: May 25, 2015 at 07:26 PM
+-- Generation Time: May 26, 2015 at 12:05 PM
 -- Server version: 5.5.41-log
--- PHP Version: 5.6.8
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `stats_totales` (
 
 INSERT INTO `stats_totales` (`id`, `token_usuario`, `total_wins`, `total_losses`, `total_games`) VALUES
 (2, 'd_qNX7WZbubTinTB5Qgi', 0, 0, 0),
-(3, 'vvPWSYz_WQVeL95EQ9Yx', 0, 0, 0);
+(3, 'vvPWSYz_WQVeL95EQ9Yx', 3, 0, 3);
 
 -- --------------------------------------------------------
 
