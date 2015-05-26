@@ -20,16 +20,13 @@ class Stats implements ModelsInterface
 
 		foreach ($usuarios as $usuario) {
 			$url = $this->createUrlFromUserToken($usuario['username'], $usuario['token']);
-			$data = $this->getJsonFromUrl($url);
-			print_r( $usuario['token']);
-			print_r( $data['stats']['overall']['wins']);
-			print_r( $data['stats']['overall']['losses']);
-			print_r( $data['stats']['overall']['total']);			
-			$statement = $this->db->prepare("UPDATE stats_totales SET total_wins = :total_wins, total_losses = :total_losses, total_games = :total_games WHERE 'stats_totales.token_usuario' ='".$usuario['token']."'");
+			$data = $this->getJsonFromUrl($url);			
+			$statement = $this->db->prepare("UPDATE stats_totales SET total_wins = :total_wins, total_losses = :total_losses, total_games = :total_games WHERE 'token_usuario' = :token");
 			$values = array(
 			    "total_wins" => $data['stats']['overall']['wins'],
 			    "total_losses" => $data['stats']['overall']['losses'],
-			    "total_games" => $data['stats']['overall']['total']
+			    "total_games" => $data['stats']['overall']['total'],
+			    "token" => $usuario['token']
 			);
 			if(!$statement->execute($values))
 				throw new \Exception('Error al insertar los valores');
