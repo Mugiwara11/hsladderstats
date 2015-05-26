@@ -10,10 +10,11 @@ class Indice
 	public $data;
 
 	public function __construct(ModelsInterface $model)
-	{
-		echo 'estoy en indice.php';
+	{		
 		$this->model = $model;
+		var_dump($model);
 		$this->data = $this->model->getAllStats();
+		var_dump($data);
 		$this->printTemplate();
 	}
 

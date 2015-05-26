@@ -6,7 +6,7 @@ use Libs\DatabaseConnector;
 
 class Stats implements ModelsInterface
 {
-	const BOT_API_URL_STATS = 'https://trackobot.com/profile/stats/classes.json?mode=ranked&time_range=current_month&username={username}&token={token}';
+	const BOT_API_URL_STATS = 'https://trackobot.com/profile/stats/classes.json?mode=ranked&username={username}&token={token}'; //Eliminado el mes por abella que no tiene partidas xD
 
 	public $db;
 
@@ -20,8 +20,7 @@ class Stats implements ModelsInterface
 
 		foreach ($usuarios as $usuario) {
 			$url = $this->createUrlFromUserToken($usuario['username'], $usuario['token']);
-			$data = $this->getJsonFromUrl($url);		
-			print_r($data['stats']['overall']['total']);
+			$data = $this->getJsonFromUrl($url);
 			$statement = $this->db->prepare("UPDATE stats_totales SET total_wins = :total_wins, total_losses = :total_losses, total_games = :total_games,
 			druid_wins = :druid_wins, druid_losses = :druid_losses, druid_games = :druid_games,
 			rogue_wins = :rogue_wins, rogue_losses = :rogue_losses, rogue_games = :rogue_games,
@@ -32,7 +31,7 @@ class Stats implements ModelsInterface
 			paladin_wins = :paladin_wins, paladin_losses = :paladin_losses, paladin_games = :paladin_games,
 			priest_wins = :priest_wins, priest_losses = :priest_losses, priest_games = :priest_games,
 			mage_wins = :mage_wins, mage_losses = :mage_losses, mage_games = :mage_games
-			WHERE 'token_usuario' = :token");
+			WHERE token_usuario = :token");
 			$values = array(
 			    "total_wins" => $data['stats']['overall']['wins'],
 			    "total_losses" => $data['stats']['overall']['losses'],
@@ -80,8 +79,18 @@ class Stats implements ModelsInterface
 	}
 
 	public function getAllStats(){
-		//SUM de cada columna
-		$gsent = $this->db->prepare("SELECT (total_wins, total_losses, total_games) FROM stats_totales");
+		//winrates
+		$gsent = $this->db->prepare("SELECT SUM(total_wins),SUM(total_losses),SUM(total_games),
+		SUM(druid_wins),SUM(druid_losses),SUM(druid_games),
+		SUM(rogue_wins),SUM(rogue_losses),SUM(rogue_games),
+		SUM(warlock_wins),SUM(warlock_losses),SUM(warlock_games),
+		SUM(warrior_wins),SUM(warrior_losses),SUM(warrior_games),
+		SUM(hunter_wins),SUM(hunter_losses),SUM(hunter_games),
+		SUM(shaman_wins),SUM(shaman_losses),SUM(shaman_games),
+		SUM(paladin_wins),SUM(paladin_losses),SUM(paladin_games),
+		SUM(priest_wins),SUM(priest_losses),SUM(priest_games),
+		SUM(mage_wins),SUM(mage_losses),SUM(mage_games)
+		FROM stats_totales");
         $gsent->execute();
         return $gsent->fetchAll();
 	}

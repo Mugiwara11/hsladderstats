@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: May 26, 2015 at 06:34 PM
+-- Generation Time: May 26, 2015 at 07:46 PM
 -- Server version: 5.5.41-log
 -- PHP Version: 5.6.8
 
@@ -66,8 +66,8 @@ CREATE TABLE IF NOT EXISTS `stats_totales` (
 --
 
 INSERT INTO `stats_totales` (`id`, `token_usuario`, `total_wins`, `total_losses`, `total_games`, `druid_wins`, `druid_losses`, `druid_games`, `rogue_wins`, `rogue_losses`, `rogue_games`, `warlock_wins`, `warlock_losses`, `warlock_games`, `warrior_wins`, `warrior_losses`, `warrior_games`, `hunter_wins`, `hunter_losses`, `hunter_games`, `paladin_wins`, `paladin_losses`, `paladin_games`, `shaman_wins`, `shaman_losses`, `shaman_games`, `priest_wins`, `priest_losses`, `priest_games`, `mage_wins`, `mage_losses`, `mage_games`) VALUES
-(2, 'd_qNX7WZbubTinTB5Qgi', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 'vvPWSYz_WQVeL95EQ9Yx', 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(2, 'd_qNX7WZbubTinTB5Qgi', 130, 115, 245, 72, 64, 136, 11, 14, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 22, 57, 2, 4, 6, 0, 0, 0, 10, 11, 21),
+(3, 'vvPWSYz_WQVeL95EQ9Yx', 1003, 931, 1934, 340, 281, 621, 297, 289, 586, 216, 212, 428, 26, 33, 59, 45, 40, 85, 66, 58, 124, 13, 18, 31, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
