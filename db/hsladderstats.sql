@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: May 26, 2015 at 12:05 PM
+-- Generation Time: May 26, 2015 at 06:34 PM
 -- Server version: 5.5.41-log
--- PHP Version: 5.6.3
+-- PHP Version: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,16 +31,43 @@ CREATE TABLE IF NOT EXISTS `stats_totales` (
   `token_usuario` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `total_wins` int(1) NOT NULL,
   `total_losses` int(15) NOT NULL,
-  `total_games` int(15) NOT NULL
+  `total_games` int(15) NOT NULL,
+  `druid_wins` int(15) NOT NULL,
+  `druid_losses` int(15) NOT NULL,
+  `druid_games` int(15) NOT NULL,
+  `rogue_wins` int(15) NOT NULL,
+  `rogue_losses` int(15) NOT NULL,
+  `rogue_games` int(15) NOT NULL,
+  `warlock_wins` int(15) NOT NULL,
+  `warlock_losses` int(15) NOT NULL,
+  `warlock_games` int(15) NOT NULL,
+  `warrior_wins` int(15) NOT NULL,
+  `warrior_losses` int(15) NOT NULL,
+  `warrior_games` int(15) NOT NULL,
+  `hunter_wins` int(15) NOT NULL,
+  `hunter_losses` int(15) NOT NULL,
+  `hunter_games` int(15) NOT NULL,
+  `paladin_wins` int(15) NOT NULL,
+  `paladin_losses` int(15) NOT NULL,
+  `paladin_games` int(15) NOT NULL,
+  `shaman_wins` int(15) NOT NULL,
+  `shaman_losses` int(15) NOT NULL,
+  `shaman_games` int(15) NOT NULL,
+  `priest_wins` int(15) NOT NULL,
+  `priest_losses` int(15) NOT NULL,
+  `priest_games` int(15) NOT NULL,
+  `mage_wins` int(15) NOT NULL,
+  `mage_losses` int(15) NOT NULL,
+  `mage_games` int(15) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `stats_totales`
 --
 
-INSERT INTO `stats_totales` (`id`, `token_usuario`, `total_wins`, `total_losses`, `total_games`) VALUES
-(2, 'd_qNX7WZbubTinTB5Qgi', 0, 0, 0),
-(3, 'vvPWSYz_WQVeL95EQ9Yx', 3, 0, 3);
+INSERT INTO `stats_totales` (`id`, `token_usuario`, `total_wins`, `total_losses`, `total_games`, `druid_wins`, `druid_losses`, `druid_games`, `rogue_wins`, `rogue_losses`, `rogue_games`, `warlock_wins`, `warlock_losses`, `warlock_games`, `warrior_wins`, `warrior_losses`, `warrior_games`, `hunter_wins`, `hunter_losses`, `hunter_games`, `paladin_wins`, `paladin_losses`, `paladin_games`, `shaman_wins`, `shaman_losses`, `shaman_games`, `priest_wins`, `priest_losses`, `priest_games`, `mage_wins`, `mage_losses`, `mage_games`) VALUES
+(2, 'd_qNX7WZbubTinTB5Qgi', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 'vvPWSYz_WQVeL95EQ9Yx', 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 

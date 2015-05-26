@@ -80,6 +80,7 @@ class Stats implements ModelsInterface
 	}
 
 	public function getAllStats(){
+		//SUM de cada columna
 		$gsent = $this->db->prepare("SELECT (total_wins, total_losses, total_games) FROM stats_totales");
         $gsent->execute();
         return $gsent->fetchAll();
