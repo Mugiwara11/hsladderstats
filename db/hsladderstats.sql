@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: May 26, 2015 at 07:46 PM
+-- Generation Time: May 27, 2015 at 07:19 PM
 -- Server version: 5.5.41-log
 -- PHP Version: 5.6.8
 
@@ -28,46 +28,26 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `stats_totales` (
 `id` int(15) NOT NULL,
-  `token_usuario` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
-  `total_wins` int(1) NOT NULL,
-  `total_losses` int(15) NOT NULL,
-  `total_games` int(15) NOT NULL,
-  `druid_wins` int(15) NOT NULL,
-  `druid_losses` int(15) NOT NULL,
-  `druid_games` int(15) NOT NULL,
-  `rogue_wins` int(15) NOT NULL,
-  `rogue_losses` int(15) NOT NULL,
-  `rogue_games` int(15) NOT NULL,
-  `warlock_wins` int(15) NOT NULL,
-  `warlock_losses` int(15) NOT NULL,
-  `warlock_games` int(15) NOT NULL,
-  `warrior_wins` int(15) NOT NULL,
-  `warrior_losses` int(15) NOT NULL,
-  `warrior_games` int(15) NOT NULL,
-  `hunter_wins` int(15) NOT NULL,
-  `hunter_losses` int(15) NOT NULL,
-  `hunter_games` int(15) NOT NULL,
-  `paladin_wins` int(15) NOT NULL,
-  `paladin_losses` int(15) NOT NULL,
-  `paladin_games` int(15) NOT NULL,
-  `shaman_wins` int(15) NOT NULL,
-  `shaman_losses` int(15) NOT NULL,
-  `shaman_games` int(15) NOT NULL,
-  `priest_wins` int(15) NOT NULL,
-  `priest_losses` int(15) NOT NULL,
-  `priest_games` int(15) NOT NULL,
-  `mage_wins` int(15) NOT NULL,
-  `mage_losses` int(15) NOT NULL,
-  `mage_games` int(15) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=4 ;
+  `wins` int(15) NOT NULL,
+  `losses` int(15) NOT NULL,
+  `games` int(15) NOT NULL,
+  `class` varchar(255) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=196 ;
 
 --
 -- Dumping data for table `stats_totales`
 --
 
-INSERT INTO `stats_totales` (`id`, `token_usuario`, `total_wins`, `total_losses`, `total_games`, `druid_wins`, `druid_losses`, `druid_games`, `rogue_wins`, `rogue_losses`, `rogue_games`, `warlock_wins`, `warlock_losses`, `warlock_games`, `warrior_wins`, `warrior_losses`, `warrior_games`, `hunter_wins`, `hunter_losses`, `hunter_games`, `paladin_wins`, `paladin_losses`, `paladin_games`, `shaman_wins`, `shaman_losses`, `shaman_games`, `priest_wins`, `priest_losses`, `priest_games`, `mage_wins`, `mage_losses`, `mage_games`) VALUES
-(2, 'd_qNX7WZbubTinTB5Qgi', 130, 115, 245, 72, 64, 136, 11, 14, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 22, 57, 2, 4, 6, 0, 0, 0, 10, 11, 21),
-(3, 'vvPWSYz_WQVeL95EQ9Yx', 1003, 931, 1934, 340, 281, 621, 297, 289, 586, 216, 212, 428, 26, 33, 59, 45, 40, 85, 66, 58, 124, 13, 18, 31, 0, 0, 0, 0, 0, 0);
+INSERT INTO `stats_totales` (`id`, `wins`, `losses`, `games`, `class`) VALUES
+(187, 1164, 971, 2135, 'Druid'),
+(188, 913, 895, 1808, 'Rogue'),
+(189, 648, 636, 1284, 'Warlock'),
+(190, 78, 99, 177, 'Warrior'),
+(191, 43, 62, 105, 'Shaman'),
+(192, 135, 120, 255, 'Hunter'),
+(193, 268, 218, 486, 'Paladin'),
+(194, 0, 0, 0, 'Priest'),
+(195, 20, 22, 42, 'Mage');
 
 -- --------------------------------------------------------
 
@@ -98,13 +78,13 @@ INSERT INTO `usuarios` (`id`, `username`, `token`, `fecha_alta`) VALUES
 -- Indexes for table `stats_totales`
 --
 ALTER TABLE `stats_totales`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `token_usuario` (`token_usuario`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username` (`username`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username` (`username`), ADD UNIQUE KEY `token` (`token`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -114,7 +94,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `stats_totales`
 --
 ALTER TABLE `stats_totales`
-MODIFY `id` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=196;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
