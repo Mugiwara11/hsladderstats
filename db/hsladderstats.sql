@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: May 27, 2015 at 07:19 PM
+-- Generation Time: May 27, 2015 at 07:38 PM
 -- Server version: 5.5.41-log
 -- PHP Version: 5.6.8
 
@@ -28,26 +28,36 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `stats_totales` (
 `id` int(15) NOT NULL,
+  `token` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `wins` int(15) NOT NULL,
   `losses` int(15) NOT NULL,
   `games` int(15) NOT NULL,
   `class` varchar(255) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=196 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=223 ;
 
 --
 -- Dumping data for table `stats_totales`
 --
 
-INSERT INTO `stats_totales` (`id`, `wins`, `losses`, `games`, `class`) VALUES
-(187, 1164, 971, 2135, 'Druid'),
-(188, 913, 895, 1808, 'Rogue'),
-(189, 648, 636, 1284, 'Warlock'),
-(190, 78, 99, 177, 'Warrior'),
-(191, 43, 62, 105, 'Shaman'),
-(192, 135, 120, 255, 'Hunter'),
-(193, 268, 218, 486, 'Paladin'),
-(194, 0, 0, 0, 'Priest'),
-(195, 20, 22, 42, 'Mage');
+INSERT INTO `stats_totales` (`id`, `token`, `wins`, `losses`, `games`, `class`) VALUES
+(205, 'd_qNX7WZbubTinTB5Qgi', 72, 64, 136, 'Druid'),
+(206, 'd_qNX7WZbubTinTB5Qgi', 11, 14, 25, 'Rogue'),
+(207, 'd_qNX7WZbubTinTB5Qgi', 0, 0, 0, 'Warlock'),
+(208, 'd_qNX7WZbubTinTB5Qgi', 0, 0, 0, 'Warrior'),
+(209, 'd_qNX7WZbubTinTB5Qgi', 2, 4, 6, 'Shaman'),
+(210, 'd_qNX7WZbubTinTB5Qgi', 0, 0, 0, 'Hunter'),
+(211, 'd_qNX7WZbubTinTB5Qgi', 35, 22, 57, 'Paladin'),
+(212, 'd_qNX7WZbubTinTB5Qgi', 0, 0, 0, 'Priest'),
+(213, 'd_qNX7WZbubTinTB5Qgi', 10, 11, 21, 'Mage'),
+(214, 'vvPWSYz_WQVeL95EQ9Yx', 340, 281, 621, 'Druid'),
+(215, 'vvPWSYz_WQVeL95EQ9Yx', 297, 289, 586, 'Rogue'),
+(216, 'vvPWSYz_WQVeL95EQ9Yx', 216, 212, 428, 'Warlock'),
+(217, 'vvPWSYz_WQVeL95EQ9Yx', 26, 33, 59, 'Warrior'),
+(218, 'vvPWSYz_WQVeL95EQ9Yx', 13, 18, 31, 'Shaman'),
+(219, 'vvPWSYz_WQVeL95EQ9Yx', 45, 40, 85, 'Hunter'),
+(220, 'vvPWSYz_WQVeL95EQ9Yx', 66, 58, 124, 'Paladin'),
+(221, 'vvPWSYz_WQVeL95EQ9Yx', 0, 0, 0, 'Priest'),
+(222, 'vvPWSYz_WQVeL95EQ9Yx', 0, 0, 0, 'Mage');
 
 -- --------------------------------------------------------
 
@@ -94,7 +104,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `stats_totales`
 --
 ALTER TABLE `stats_totales`
-MODIFY `id` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=196;
+MODIFY `id` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=223;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --

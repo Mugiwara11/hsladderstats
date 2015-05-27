@@ -26,10 +26,10 @@ class Stats implements ModelsInterface
 			$statement->execute();
 			$vacio = $statement->fetchAll();					
 			foreach($clases as $clase){
-				print_r($data['stats']['as_class'][$clase]['wins']);
-				if($vacio[0][0] == 0){
-					$statement = $this->db->prepare("INSERT INTO stats_totales (wins, losses, games, class) VALUES (:wins, :losses, :games, :class)");				
+				if($vacio[0][0] < 18){
+					$statement = $this->db->prepare("INSERT INTO stats_totales (token, wins, losses, games, class) VALUES (:token , :wins, :losses, :games, :class)");				
 					$values = array(
+						"token" => $usuario['token'],
 						"wins" => $data['stats']['as_class'][$clase]['wins'],
 						"losses" => $data['stats']['as_class'][$clase]['losses'],
 						"games" => $data['stats']['as_class'][$clase]['total'],
@@ -38,8 +38,9 @@ class Stats implements ModelsInterface
 					if(!$statement->execute($values))
 					throw new \Exception('Error al insertar los valores');
 				}else{
-					$statement = $this->db->prepare("UPDATE stats_totales SET wins = wins + :wins, losses =losses + :losses, games = games + :games WHERE class = :class");				
+					$statement = $this->db->prepare("UPDATE stats_totales SET wins = :wins, losses = :losses, games = :games WHERE class = :class and token = :token");				
 					$values = array(
+						"token" => $usuario['token'],
 						"wins" => $data['stats']['as_class'][$clase]['wins'],
 						"losses" => $data['stats']['as_class'][$clase]['losses'],
 						"games" => $data['stats']['as_class'][$clase]['total'],
