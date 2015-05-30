@@ -10,17 +10,21 @@ try {
     switch($partes_url[0]) {
         case '':
             $model = new Models\Stats;
-            $controller = new Controllers\SaveStats($model);
+            $controller = new Controllers\SaveStatsTotales($model);
             $view = new Views\Indice($model);
         break;
         case 'clase':
-
+            $model = new Models\Stats;
+            $controller = new Controllers\SaveStatsVsClase($model);
+            $view = new Views\Clase($model);
         break;
         case 'carta':
 
         break;
         case 'cartas':
-
+            $model = new Models\Historial;
+            $controller = new Controllers\SaveHistorial($model);
+            $view = new Views\Cartas($model);
         break;
         case 'participa':
             if(!empty($_POST)) {
