@@ -8,3 +8,5 @@ img { max-width: 100%; height: auto };
 .block-stats .s6 { float: none; margin: 0 auto !important; width: 100%; height: auto; }
 .block-links { margin: 2em 0; padding: 1em; }
 .container .texto { max-width: 65em; margin: 0 auto; }
+.submenu { display: none; margin: 10px 20px;}
+.active { display: block; }

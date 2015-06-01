@@ -13,10 +13,11 @@ class Cartas
 	{
 		$this->model = $model;
 		$this->data = $this->model->getFullHistory();
+		//print_r($this->data);
 		$this->printTemplate();
 	}
 
 	public function printTemplate() {
-		include APP_PATH."\Templates\historial.html";
+		include APP_PATH."\Templates\cartas.html";
 	}
 }

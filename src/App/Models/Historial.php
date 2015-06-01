@@ -60,7 +60,10 @@ class Historial implements ModelsInterface
     }
 
 	public function getFullHistory() {
-		// recuperar los datos de todas las partidas
+		// cartas jugadas + resultado + moneda
+		$statement = $this->db->prepare("SELECT distinct (carta), coin, result FROM cartas , partidas WHERE player = me and partidas_id = n_partida");
+		$statement -> execute();
+		return $statement-> fetchAll();
 	}
 
 	public function partidaExist($n_partida) {

@@ -44,8 +44,7 @@ class Stats implements ModelsInterface
 	public function saveStatsVsClase() {
 		$partes_url = parser($_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI']);
 		$model_clases = new Clases;
-		$clase_stats = $model_clases->getClaseByNombre($partes_url[1]);
-		print_r($clase_stats);
+		$clase_stats = $model_clases->getClaseByNombre($partes_url[1]);		
 		$model_usuarios = new Usuarios;
 		$usuarios = $model_usuarios->getAllUsuarios();
 		foreach ($usuarios as $usuario) {
@@ -82,7 +81,15 @@ class Stats implements ModelsInterface
 
 	public function getClaseStats() {
 		$partes_url = parser($_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI']);
-		$clase = $partes_url[1];
-		// winrates clase		
+		$model_clases = new Clases;
+		$clase_stats = $model_clases->getClaseByNombre($partes_url[1]);		
+		// winrates clase
+		$data = array();
+			foreach ($this->clases as $clase) {
+				$gsent = $this->db->prepare("SELECT SUM(wins) as 'Wins', SUM(losses) as 'Losses', vs_clases_id as 'vs_Class' FROM stats_vs_clases where clases_id = :clases_id and vs_clases_id = :vs_clases_id");				
+				$gsent->execute(array('clases_id' => $clase_stats['id'], 'vs_clases_id' => $clase['id']));
+				array_push($data, $gsent->fetchAll());
+			}		
+		return $data;		
 	}
 }
