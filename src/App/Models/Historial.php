@@ -44,10 +44,11 @@ class Historial implements ModelsInterface
 					if(!$statement->execute($values))
 						throw new \Exception('Error al insertar los valores '.$statement->errorInfo());
 
+					$partida_id = $this->db->lastInsertId();
 					foreach ($partida['card_history'] as $carta) {
 						$statement = $this->db->prepare("INSERT INTO cartas (partidas_id, carta, player) VALUES (:partidas_id, :carta, :player)");
 						$values = array(
-							"partidas_id" => $partida['id'],
+							"partidas_id" => $partida_id,
 							"carta" => $carta['card']['id'],
 							"player" => $carta['player']
 						);
@@ -61,6 +62,10 @@ class Historial implements ModelsInterface
 
 	public function getFullHistory() {
 		// cartas jugadas + resultado + moneda
+		$sql = "select cartas.carta, sum(partidas.result) as wins, count(partidas.result) as total from cartas
+		join partidas on cartas.partidas_id = partidas.id
+		where cartas.player = 'me'
+		group by cartas.carta";
 		$statement = $this->db->prepare("SELECT distinct (carta), coin, result FROM cartas , partidas WHERE player = me and partidas_id = n_partida");
 		$statement -> execute();
 		return $statement-> fetchAll();

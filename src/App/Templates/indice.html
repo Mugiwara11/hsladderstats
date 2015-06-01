@@ -1,16 +1,102 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-	<title></title>
-	<link type="text/css" rel="stylesheet" href="src/App/Templates/css/materialize.min.css">
-	<link type="text/css" rel="stylesheet" href="src/App/Templates/css/style.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="src/App/Templates/js/materialize.min.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script src="src/App/Templates/js/portada.js"></script>
-    <script type="text/javascript">
+<?php include 'cabecera.html'; ?>
+	<div class="portada">
+		<img class="imagen-portada" src="src/App/Templates/img/hsportada.jpg">
+	</div>
+	<div class="container row">
+		<div class="block-stats col s9">
+			<div class="filtros">
+				<a class="btn-floating btn-large waves-effect waves-light rogue-icon" href="/hsladderstats/clase/rogue">
+					<img class="responsive-img" src="src/App/Templates/img/rogueicon.png">
+				</a>
+				<a class="btn-floating btn-large waves-effect waves-light warlock-icon" href="/hsladderstats/clase/warlock">
+					<img class="responsive-img" src="src/App/Templates/img/warlockicon.png">
+				</a>
+				<a class="btn-floating btn-large waves-effect waves-light warrior-icon" href="/hsladderstats/clase/warrior">
+					<img class="responsive-img" src="src/App/Templates/img/warrioricon.png">
+				</a>
+				<a class="btn-floating btn-large waves-effect waves-light druid-icon" href="/hsladderstats/clase/druid">
+					<img class="responsive-img" src="src/App/Templates/img/druidicon.png">
+				</a>
+				<a class="btn-floating btn-large waves-effect waves-light hunter-icon" href="/hsladderstats/clase/hunter">
+					<img class="responsive-img" src="src/App/Templates/img/huntericon.png">
+				</a>
+				<a class="btn-floating btn-large waves-effect waves-light pala-icon" href="/hsladderstats/clase/shaman">
+					<img class="responsive-img" src="src/App/Templates/img/shamanicon.png">
+				</a>
+				<a class="btn-floating btn-large waves-effect waves-light shaman-icon" href="/hsladderstats/clase/paladin">
+					<img class="responsive-img" src="src/App/Templates/img/palaicon.png">
+				</a>
+				<a class="btn-floating btn-large waves-effect waves-light mage-icon" href="/hsladderstats/clase/mage">
+					<img class="responsive-img" src="src/App/Templates/img/mageicon.png">
+				</a>
+				<a class="btn-floating btn-large waves-effect waves-light priest-icon" href="/hsladderstats/clase/priest">
+					<img class="responsive-img" src="src/App/Templates/img/priesticon.png">
+				</a>
+			</div>
+			<div class="stats row">
+				<div class="stats-totales-clase col s4">
+					<div id="stats-rogue"></div>
+				</div>
+				<div class="stats-totales-clase col s4">
+					<div id="stats-warlock"></div>
+				</div>
+				<div class="stats-totales-clase col s4">
+					<div id="stats-warrior"></div>
+				</div>
+				<div class="stats-totales-clase col s4">
+					<div id="stats-druid"></div>
+				</div>
+				<div class="stats-totales-clase col s4">
+					<div id="stats-hunter"></div>
+				</div>
+				<div class="stats-totales-clase col s4">
+					<div id="stats-shaman"></div>
+				</div>
+				<div class="stats-totales-clase col s4">
+					<div id="stats-paladin"></div>
+				</div>
+				<div class="stats-totales-clase col s4">
+					<div id="stats-mage"></div>
+				</div>
+				<div class="stats-totales-clase col s4">
+					<div id="stats-priest"></div>
+				</div>
+			</div>
+		</div>
+		<div class="block-links col s3">
+			<div class="menu">
+				<ul>
+					<li><a href="">Inicio</li>
+					<li class="dropdown">
+						<a href="">Clase <i class="mdi-navigation-expand-more"></i></a>
+						<ul class="submenu">
+							<li><a href="">Rogue</a></li>
+							<li><a href="">Warlock</a></li>
+							<li><a href="">Warrior</a></li>
+							<li><a href="">Druid</a></li>
+							<li><a href="">Hunter</a></li>
+							<li><a href="">Paladin</a></li>
+							<li><a href="">Shaman</a></li>
+							<li><a href="">Priest</a></li>
+							<li><a href="">Mage</a></li>
+						</ul>
+					</li>
+					<li><a href="">Cartas</a></li>
+					<li><a href="">Participa</a></li>
+					<li class="dropdown">
+						<a href="">Links de interés  <i class="mdi-navigation-expand-more"></i></a>
+						<ul class="submenu">
+							<li><a href="https://trackobot.com/">Track-o-Bot</a></li>
+							<li><a href="http://disguisedtoast.com/">disguisedtoast.com</a></li>
+							<li><a href="http://www.liquidhearth.com/forum/constructed-strategy/486640-pr-may-week-4-another-week-of-patron-domination">Power Rank: May Week 4</a></li>
+							<li><a href="http://www.gosugamers.net/hearthstone">Gosugamers: Hearthstone</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       var array_druid = ["<?php echo $this->data[0][0]['Wins'] ?>" , "<?php echo $this->data[0][0]['Losses'] ?>"];
@@ -21,15 +107,15 @@
       var array_hunter = ["<?php echo $this->data[5][0]['Wins'] ?>" , "<?php echo $this->data[5][0]['Losses'] ?>"];
       var array_paladin = ["<?php echo $this->data[6][0]['Wins'] ?>" , "<?php echo $this->data[6][0]['Losses'] ?>"];
       var array_priest = ["<?php echo $this->data[7][0]['Wins'] ?>" , "<?php echo $this->data[7][0]['Losses'] ?>"];
-      var array_mage = ["<?php echo $this->data[8][0]['Wins'] ?>" , "<?php echo $this->data[8][0]['Losses'] ?>"];     
+      var array_mage = ["<?php echo $this->data[8][0]['Wins'] ?>" , "<?php echo $this->data[8][0]['Losses'] ?>"];
 
       function drawChart() {
-        var data_druid = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_druid[0], 10)], ['', parseInt(array_druid[1], 10)] ]); 		
+        var data_druid = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_druid[0], 10)], ['', parseInt(array_druid[1], 10)] ]);
         var data_rogue = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_rogue[0], 10)], ['', parseInt(array_rogue[1], 10)] ]);
         var data_warlock = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_warlock[0], 10)], ['', parseInt(array_warlock[1], 10)] ]);
         var data_warrior = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_warrior[0], 10)], ['', parseInt(array_warrior[1], 10)] ]);
         var data_shaman = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_shaman[0], 10)], ['', parseInt(array_shaman[1], 10)] ]);
-        var data_hunter = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_hunter[0], 10)], ['', parseInt(array_hunter[1], 10)] ]);        
+        var data_hunter = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_hunter[0], 10)], ['', parseInt(array_hunter[1], 10)] ]);
         var data_paladin = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_paladin[0], 10)], ['', parseInt(array_paladin[1], 10)] ]);
         var data_priest = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_priest[0], 10)], ['', parseInt(array_priest[1], 10)] ]);
         var data_mage = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_mage[0], 10)], ['', parseInt(array_mage[1], 10)] ]);
@@ -63,112 +149,6 @@
         chart = new google.visualization.PieChart(document.getElementById('stats-priest'));
         chart.draw(data_priest, options_priest);
       }
-    </script>   
-</head>
-<body>	
-		<header>
-			
-		</header>
-		<div class="portada">
-			<img class="imagen-portada" src="src/App/Templates/img/hsportada.jpg">
-		</div>
-		<div class="container row">
-			<div class="block-stats col s9">
-				<div class="filtros">
-					<a class="btn-floating btn-large waves-effect waves-light rogue-icon" href="/hsladderstats/clase/rogue">
-						<img class="responsive-img" src="src/App/Templates/img/rogueicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light warlock-icon" href="/hsladderstats/clase/warlock">
-						<img class="responsive-img" src="src/App/Templates/img/warlockicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light warrior-icon" href="/hsladderstats/clase/warrior">
-						<img class="responsive-img" src="src/App/Templates/img/warrioricon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light druid-icon" href="/hsladderstats/clase/druid">
-						<img class="responsive-img" src="src/App/Templates/img/druidicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light hunter-icon" href="/hsladderstats/clase/hunter">
-						<img class="responsive-img" src="src/App/Templates/img/huntericon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light pala-icon" href="/hsladderstats/clase/shaman">
-						<img class="responsive-img" src="src/App/Templates/img/shamanicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light shaman-icon" href="/hsladderstats/clase/paladin">
-						<img class="responsive-img" src="src/App/Templates/img/palaicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light mage-icon" href="/hsladderstats/clase/mage">
-						<img class="responsive-img" src="src/App/Templates/img/mageicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light priest-icon" href="/hsladderstats/clase/priest">
-						<img class="responsive-img" src="src/App/Templates/img/priesticon.png">
-					</a>
-				</div>
-				<div class="stats row">
-					<div class="stats-totales-clase col s4">
-						<div id="stats-rogue"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-warlock"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-warrior"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-druid"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-hunter"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-shaman"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-paladin"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-mage"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-priest"></div>
-					</div>
-				</div>				
-			</div>
-			<div class="block-links col s3">
-				<div class="menu">
-					<ul>
-						<li><a href="">Inicio</li>
-						<li class="dropdown">
-							<a href="">Clase <i class="mdi-navigation-expand-more"></i></a>
-							<ul class="submenu">
-								<li><a href="">Rogue</a></li>
-								<li><a href="">Warlock</a></li>
-								<li><a href="">Warrior</a></li>
-								<li><a href="">Druid</a></li>
-								<li><a href="">Hunter</a></li>
-								<li><a href="">Paladin</a></li>
-								<li><a href="">Shaman</a></li>
-								<li><a href="">Priest</a></li>
-								<li><a href="">Mage</a></li>								
-							</ul>
-						</li>
-						<li><a href="">Cartas</a></li>
-						<li><a href="">Participa</a></li>
-						<li class="dropdown">
-							<a href="">Links de interés  <i class="mdi-navigation-expand-more"></i></a>
-							<ul class="submenu">
-								<li><a href="https://trackobot.com/">Track-o-Bot</a></li>
-								<li><a href="http://disguisedtoast.com/">disguisedtoast.com</a></li>
-								<li><a href="http://www.liquidhearth.com/forum/constructed-strategy/486640-pr-may-week-4-another-week-of-patron-domination">Power Rank: May Week 4</a></li>
-								<li><a href="http://www.gosugamers.net/hearthstone">Gosugamers: Hearthstone</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<footer>
-			
-		</footer>
-	
+    </script>
 </body>
 </html>
