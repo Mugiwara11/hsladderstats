@@ -2,10 +2,168 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title></title>
-	<link rel="stylesheet" href="">
+	<link type="text/css" rel="stylesheet" href="src/App/Templates/css/materialize.min.css">
+	<link type="text/css" rel="stylesheet" href="src/App/Templates/css/style.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="src/App/Templates/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data_totales = google.visualization.arrayToDataTable();
+        var data_rogue = google.visualization.arrayToDataTable();
+        var data_warlock = google.visualization.arrayToDataTable();
+        var data_warrior = google.visualization.arrayToDataTable();
+        var data_druid = google.visualization.arrayToDataTable();
+        var data_hunter = google.visualization.arrayToDataTable();
+        var data_shaman = google.visualization.arrayToDataTable();
+        var data_pala = google.visualization.arrayToDataTable();
+        var data_mage = google.visualization.arrayToDataTable();
+        var data_priest = google.visualization.arrayToDataTable();
+
+        var options_totales = { title: 'Stats Totales', pieHole: 0.4, };
+        var options_rogue = { title: 'Stats Rogue', pieHole: 0.4, };
+        var options_druid = { title: 'Stats Druid', pieHole: 0.4, };
+        var options_warlock = { title: 'Stats Warlock', pieHole: 0.4, };
+        var options_warrior = { title: 'Stats Warrior', pieHole: 0.4, };
+        var options_hunter = { title: 'Stats Hunter', pieHole: 0.4, };
+        var options_shaman = { title: 'Stats Shaman', pieHole: 0.4, };
+        var options_pala = { title: 'Stats Paladin', pieHole: 0.4, };
+        var options_priest = { title: 'Stats Priest', pieHole: 0.4, };
+        var options_mage = { title: 'Stats Mage', pieHole: 0.4, };
+
+        var chart = new google.visualization.PieChart(document.getElementById('stats-totales'));
+        chart.draw(data_totales, options_totales);
+        chart = new google.visualization.PieChart(document.getElementById('stats-rogue'));
+        chart.draw(data_rogue, options_rogue);
+        chart = new google.visualization.PieChart(document.getElementById('stats-warlock'));
+        chart.draw(data_warlock, options_warlock);
+        chart = new google.visualization.PieChart(document.getElementById('stats-warrior'));
+        chart.draw(data_warrior, options_warrior);
+        chart = new google.visualization.PieChart(document.getElementById('stats-druid'));
+        chart.draw(data_druid, options_druid);
+        chart = new google.visualization.PieChart(document.getElementById('stats-hunter'));
+        chart.draw(data_hunter, options_hunter);
+        chart = new google.visualization.PieChart(document.getElementById('stats-shaman'));
+        chart.draw(data_shaman, options_shaman);
+        chart = new google.visualization.PieChart(document.getElementById('stats-pala'));
+        chart.draw(data_pala, options_pala);
+        chart = new google.visualization.PieChart(document.getElementById('stats-mage'));
+        chart.draw(data_mage, options_mage);
+        chart = new google.visualization.PieChart(document.getElementById('stats-priest'));
+        chart.draw(data_priest, options_priest);
+      }
+    </script>   
 </head>
-<body>
-	Estoy en una clase
+<body>	
+		<header>
+			
+		</header>
+		<div class="portada">
+			<img src="src/App/Templates/img/hsportada.jpg">
+		</div>
+		<div class="container row">
+			<div class="block-stats col s9">
+				<div class="filtros">
+					<a class="btn-floating btn-large waves-effect waves-light rogue-icon" href="/hsladderstats/rogue">
+						<img class="responsive-img" src="src/App/Templates/img/rogueicon.png">
+					</a>
+					<a class="btn-floating btn-large waves-effect waves-light warlock-icon" href="/hsladderstats/rogue">
+						<img class="responsive-img" src="src/App/Templates/img/warlockicon.png">
+					</a>
+					<a class="btn-floating btn-large waves-effect waves-light warrior-icon" href="/hsladderstats/rogue">
+						<img class="responsive-img" src="src/App/Templates/img/warrioricon.png">
+					</a>
+					<a class="btn-floating btn-large waves-effect waves-light druid-icon" href="/hsladderstats/rogue">
+						<img class="responsive-img" src="src/App/Templates/img/druidicon.png">
+					</a>
+					<a class="btn-floating btn-large waves-effect waves-light hunter-icon" href="/hsladderstats/rogue">
+						<img class="responsive-img" src="src/App/Templates/img/huntericon.png">
+					</a>
+					<a class="btn-floating btn-large waves-effect waves-light pala-icon" href="/hsladderstats/rogue">
+						<img class="responsive-img" src="src/App/Templates/img/shamanicon.png">
+					</a>
+					<a class="btn-floating btn-large waves-effect waves-light shaman-icon" href="/hsladderstats/rogue">
+						<img class="responsive-img" src="src/App/Templates/img/palaicon.png">
+					</a>
+					<a class="btn-floating btn-large waves-effect waves-light mage-icon" href="/hsladderstats/rogue">
+						<img class="responsive-img" src="src/App/Templates/img/priesticon.png">
+					</a>
+					<a class="btn-floating btn-large waves-effect waves-light priest-icon" href="/hsladderstats/rogue">
+						<img class="responsive-img" src="src/App/Templates/img/mageicon.png">
+					</a>
+				</div>
+				<div class="stats row">
+					<div class="stats-totales col s6 ">
+						<!--Div that will hold the pie chart-->
+	    				 <div class="center-align" id="stats-totales"></div>
+					</div>
+					<div class="stats-totales-clase col s4">
+						<div id="stats-rogue"></div>
+					</div>
+					<div class="stats-totales-clase col s4">
+						<div id="stats-warlock"></div>
+					</div>
+					<div class="stats-totales-clase col s4">
+						<div id="stats-warrior"></div>
+					</div>
+					<div class="stats-totales-clase col s4">
+						<div id="stats-druid"></div>
+					</div>
+					<div class="stats-totales-clase col s4">
+						<div id="stats-hunter"></div>
+					</div>
+					<div class="stats-totales-clase col s4">
+						<div id="stats-shaman"></div>
+					</div>
+					<div class="stats-totales-clase col s4">
+						<div id="stats-pala"></div>
+					</div>
+					<div class="stats-totales-clase col s4">
+						<div id="stats-mage"></div>
+					</div>
+					<div class="stats-totales-clase col s4">
+						<div id="stats-priest"></div>
+					</div>
+				</div>				
+			</div>
+			<div class="block-links col s3">
+				<div class="menu">
+					<ul>
+						<li class="dropdown">
+							<a href="">Clase <i class="mdi-navigation-expand-more"></i></a>
+							<ul class="submenu">
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+							</ul>
+						</li>
+						<li><a href="">Cartas</a></li>
+						<li><a href="">Participa</a></li>
+						<li class="dropdown">
+							<a href="">Links de interés  <i class="mdi-navigation-expand-more"></i></a>
+							<ul class="submenu">
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<footer>
+			
+		</footer>
+	
 </body>
 </html>

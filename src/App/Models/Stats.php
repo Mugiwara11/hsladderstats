@@ -8,6 +8,7 @@ class Stats implements ModelsInterface
 {
 	public $db;
 	public $clases;
+	public $stats;
 
 	public function __construct(){
         $this->db = DatabaseConnector::connect();
@@ -44,7 +45,7 @@ class Stats implements ModelsInterface
 		$partes_url = parser($_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI']);
 		$model_clases = new Clases;
 		$clase_stats = $model_clases->getClaseByNombre($partes_url[1]);
-
+		print_r($clase_stats);
 		$model_usuarios = new Usuarios;
 		$usuarios = $model_usuarios->getAllUsuarios();
 		foreach ($usuarios as $usuario) {
@@ -69,12 +70,19 @@ class Stats implements ModelsInterface
 	}
 
 	public function getAllStats(){
-		//winrates
+			//winrates
+			$data = array();
+			foreach ($this->clases as $clase) {
+				$gsent = $this->db->prepare("SELECT SUM(wins) as 'Wins', SUM(losses) as 'Losses' FROM stats_totales where clases_id = :clases_id");				
+				$gsent->execute(array('clases_id' => $clase['id']));
+				array_push($data, $gsent->fetchAll());
+			}		
+			return $data;
 	}
 
 	public function getClaseStats() {
 		$partes_url = parser($_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI']);
 		$clase = $partes_url[1];
-		// winrates clase
+		// winrates clase		
 	}
 }

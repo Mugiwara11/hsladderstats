@@ -2,15 +2,41 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title></title>
-	<link rel="stylesheet" href="">
+	<link type="text/css" rel="stylesheet" href="src/App/Templates/css/materialize.min.css">
+	<link type="text/css" rel="stylesheet" href="src/App/Templates/css/style.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="src/App/Templates/js/materialize.min.js"></script>
 </head>
 <body>
-	<!-- action a la misma pagina -->
-	<form method="post">
-		Username: <input type="text" name="username">
-		Token: <input type="text" name="token">
-		<input type="submit" value="Enviar">
-	</form>
+	<div class="portada">
+		<img src="src/App/Templates/img/hsportada.jpg">
+	</div>
+	<div class="container">
+		<div class="texto">
+			<p>Participa con nuestra página aportando tus datos de juego. Para ello, descarga el tracker de <a href="https://trackobot.com/">Track-o-Bot</a>.</p>
+			<p>En en link anterior, su desarrollador, explica su uso. Con este bot obtendreis un username y un token, simplemente rellenando nuestro formulario, podrás sumarte a las estadísticas de la página.</p>
+			<p>Cuantos más seamos, más fiables serán los estudios del meta, anímate y envianos tus datos del tracker.</p>
+			 <div class="row">
+			    <form class="col s12" method="post">
+			      <div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Username" id="username" type="text" class="validate">
+			          <label for="username">Username</label>
+			        </div>
+			        <div class="input-field col s6">
+			          <input placeholder="Token" id="token" type="text" class="validate">
+			          <label for="token">Token</label>
+			        </div>
+			        <div class="btn col s12">
+			        	<span>ENVIAR</span>
+			          	<input type="submit">
+			        </div>
+			      </div>		      
+			    </form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
