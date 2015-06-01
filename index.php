@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Europe/Madrid');
 define("ROOT_PATH", dirname(__FILE__).'/');
 define("APP_PATH", dirname(__FILE__)."/src/App/");
 include APP_PATH."autoload.php";

@@ -1,14 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
+<?php include 'cabecera.html'; ?>
 	<?php 
 		$datos = $this->data;
-		print_r($datos);
-	 ?> 
+		$cartas = array();
+		foreach ($datos as $dato){
+			$a = [$dato['carta_name'], number_format (($dato['wins']/$dato['total'])*100, 2, '.', ''), $dato['total']];
+			array_push($cartas, $a);
+		}		
+	 ?>
+	 <div class="portada">
+		<img src="<?php echo BASE_URL ?>/statics/img/hsportada.jpg">
+	</div>
+	<div class="container">
+		<table>
+	        <thead>
+	          <tr>
+	              <th data-field="name">Name</th>
+	              <th data-field="winrate">Winrate</th>
+	              <th data-field="games">Games</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	        <?php 
+	        	foreach($cartas as $carta){
+	        		echo "<tr><td>$carta[0]</td><td>$carta[1]%</td><td>$carta[2]</td></tr>";
+	        	}
+	        ?>
+	        </tbody>
+      </table>
+	</div> 
 </body>
 </html>

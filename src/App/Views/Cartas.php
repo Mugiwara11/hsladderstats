@@ -13,7 +13,6 @@ class Cartas
 	{
 		$this->model = $model;
 		$this->data = $this->model->getFullHistory();
-		//print_r($this->data);
 		$this->printTemplate();
 	}
 

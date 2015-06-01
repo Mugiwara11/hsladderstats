@@ -1,176 +1,104 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-	<title></title>
-	<link type="text/css" rel="stylesheet" href="../src/App/Templates/css/materialize.min.css">
-	<link type="text/css" rel="stylesheet" href="../src/App/Templates/css/style.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="../src/App/Templates/js/materialize.min.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script src="../src/App/Templates/js/portada.js"></script>
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      var array_druid = ["<?php echo $this->data[0][0]['Wins'] ?>" , "<?php echo $this->data[0][0]['Losses'] ?>"];
-      var array_rogue = ["<?php echo $this->data[1][0]['Wins'] ?>" , "<?php echo $this->data[1][0]['Losses'] ?>"];
-      var array_warlock = ["<?php echo $this->data[2][0]['Wins'] ?>" , "<?php echo $this->data[2][0]['Losses'] ?>"];
-      var array_warrior = ["<?php echo $this->data[3][0]['Wins'] ?>" , "<?php echo $this->data[3][0]['Losses'] ?>"];
-      var array_shaman = ["<?php echo $this->data[4][0]['Wins'] ?>" , "<?php echo $this->data[4][0]['Losses'] ?>"];
-      var array_hunter = ["<?php echo $this->data[5][0]['Wins'] ?>" , "<?php echo $this->data[5][0]['Losses'] ?>"];
-      var array_paladin = ["<?php echo $this->data[6][0]['Wins'] ?>" , "<?php echo $this->data[6][0]['Losses'] ?>"];
-      var array_priest = ["<?php echo $this->data[7][0]['Wins'] ?>" , "<?php echo $this->data[7][0]['Losses'] ?>"];
-      var array_mage = ["<?php echo $this->data[8][0]['Wins'] ?>" , "<?php echo $this->data[8][0]['Losses'] ?>"];
-      
-      function drawChart() {
-        var data_druid = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_druid[0], 10)], ['', parseInt(array_druid[1], 10)] ]); 		
-        var data_rogue = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_rogue[0], 10)], ['', parseInt(array_rogue[1], 10)] ]);
-        var data_warlock = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_warlock[0], 10)], ['', parseInt(array_warlock[1], 10)] ]);
-        var data_warrior = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_warrior[0], 10)], ['', parseInt(array_warrior[1], 10)] ]);
-        var data_shaman = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_shaman[0], 10)], ['', parseInt(array_shaman[1], 10)] ]);
-        var data_hunter = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_hunter[0], 10)], ['', parseInt(array_hunter[1], 10)] ]);        
-        var data_paladin = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_paladin[0], 10)], ['', parseInt(array_paladin[1], 10)] ]);
-        var data_priest = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_priest[0], 10)], ['', parseInt(array_priest[1], 10)] ]);
-        var data_mage = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_mage[0], 10)], ['', parseInt(array_mage[1], 10)] ]);
+<?php include 'cabecera.html'; ?>
+<script type="text/javascript">
+	      google.load("visualization", "1", {packages:["corechart"]});
+	      google.setOnLoadCallback(drawChart);
+	      var array_druid = ["<?php echo $this->data[0][0]['Wins'] ?>" , "<?php echo $this->data[0][0]['Losses'] ?>"];
+	      var array_rogue = ["<?php echo $this->data[1][0]['Wins'] ?>" , "<?php echo $this->data[1][0]['Losses'] ?>"];
+	      var array_warlock = ["<?php echo $this->data[2][0]['Wins'] ?>" , "<?php echo $this->data[2][0]['Losses'] ?>"];
+	      var array_warrior = ["<?php echo $this->data[3][0]['Wins'] ?>" , "<?php echo $this->data[3][0]['Losses'] ?>"];
+	      var array_shaman = ["<?php echo $this->data[4][0]['Wins'] ?>" , "<?php echo $this->data[4][0]['Losses'] ?>"];
+	      var array_hunter = ["<?php echo $this->data[5][0]['Wins'] ?>" , "<?php echo $this->data[5][0]['Losses'] ?>"];
+	      var array_paladin = ["<?php echo $this->data[6][0]['Wins'] ?>" , "<?php echo $this->data[6][0]['Losses'] ?>"];
+	      var array_priest = ["<?php echo $this->data[7][0]['Wins'] ?>" , "<?php echo $this->data[7][0]['Losses'] ?>"];
+	      var array_mage = ["<?php echo $this->data[8][0]['Wins'] ?>" , "<?php echo $this->data[8][0]['Losses'] ?>"];
+	      
+	      function drawChart() {
+	        var data_druid = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_druid[0], 10)], ['', parseInt(array_druid[1], 10)] ]); 		
+	        var data_rogue = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_rogue[0], 10)], ['', parseInt(array_rogue[1], 10)] ]);
+	        var data_warlock = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_warlock[0], 10)], ['', parseInt(array_warlock[1], 10)] ]);
+	        var data_warrior = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_warrior[0], 10)], ['', parseInt(array_warrior[1], 10)] ]);
+	        var data_shaman = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_shaman[0], 10)], ['', parseInt(array_shaman[1], 10)] ]);
+	        var data_hunter = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_hunter[0], 10)], ['', parseInt(array_hunter[1], 10)] ]);        
+	        var data_paladin = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_paladin[0], 10)], ['', parseInt(array_paladin[1], 10)] ]);
+	        var data_priest = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_priest[0], 10)], ['', parseInt(array_priest[1], 10)] ]);
+	        var data_mage = google.visualization.arrayToDataTable([['Winrate', 'Total'], ['Wins', parseInt(array_mage[0], 10)], ['', parseInt(array_mage[1], 10)] ]);
 
-        var options_rogue = { title: 'Stats vs Rogue', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#404040' }, 1: { color: 'transparent' }}};
-        var options_druid = { title: 'Stats vs Druid', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#54370F' }, 1: { color: 'transparent' }}};
-        var options_warlock = { title: 'Stats vs Warlock', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#4D3362' }, 1: { color: 'transparent' }}};
-        var options_warrior = { title: 'Stats vs Warrior', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#5A0000' }, 1: { color: 'transparent' }}};
-        var options_shaman = { title: 'Stats vs Shaman', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#4C50CE' }, 1: { color: 'transparent' }}};
-        var options_hunter = { title: 'Stats vs Hunter', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#27612F' }, 1: { color: 'transparent' }}};
-        var options_paladin = { title: 'Stats vs Paladin', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#BE9B3F' }, 1: { color: 'transparent' }}};
-        var options_priest = { title: 'Stats vs Priest', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#BACA49' }, 1: { color: 'transparent' }}};
-        var options_mage = { title: 'Stats vs Mage', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#6AA9CA' }, 1: { color: 'transparent' }}};
+	        var options_rogue = { title: 'Stats vs Rogue', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#404040' }, 1: { color: 'transparent' }}};
+	        var options_druid = { title: 'Stats vs Druid', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#54370F' }, 1: { color: 'transparent' }}};
+	        var options_warlock = { title: 'Stats vs Warlock', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#4D3362' }, 1: { color: 'transparent' }}};
+	        var options_warrior = { title: 'Stats vs Warrior', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#5A0000' }, 1: { color: 'transparent' }}};
+	        var options_shaman = { title: 'Stats vs Shaman', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#4C50CE' }, 1: { color: 'transparent' }}};
+	        var options_hunter = { title: 'Stats vs Hunter', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#27612F' }, 1: { color: 'transparent' }}};
+	        var options_paladin = { title: 'Stats vs Paladin', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#BE9B3F' }, 1: { color: 'transparent' }}};
+	        var options_priest = { title: 'Stats vs Priest', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#BACA49' }, 1: { color: 'transparent' }}};
+	        var options_mage = { title: 'Stats vs Mage', pieHole: 0.2, height: 300, width: 300, slices: { 0: { color: '#6AA9CA' }, 1: { color: 'transparent' }}};
 
-        var chart = new google.visualization.PieChart(document.getElementById('stats-rogue'));
-        chart.draw(data_rogue, options_rogue);
-        chart = new google.visualization.PieChart(document.getElementById('stats-warlock'));
-        chart.draw(data_warlock, options_warlock);
-        chart = new google.visualization.PieChart(document.getElementById('stats-warrior'));
-        chart.draw(data_warrior, options_warrior);
-        chart = new google.visualization.PieChart(document.getElementById('stats-druid'));
-        chart.draw(data_druid, options_druid);
-        chart = new google.visualization.PieChart(document.getElementById('stats-hunter'));
-        chart.draw(data_hunter, options_hunter);
-        chart = new google.visualization.PieChart(document.getElementById('stats-shaman'));
-        chart.draw(data_shaman, options_shaman);
-        chart = new google.visualization.PieChart(document.getElementById('stats-paladin'));
-        chart.draw(data_paladin, options_paladin);
-        chart = new google.visualization.PieChart(document.getElementById('stats-mage'));
-        chart.draw(data_mage, options_mage);
-        chart = new google.visualization.PieChart(document.getElementById('stats-priest'));
-        chart.draw(data_priest, options_priest);
-      }
-
-    </script>   
-</head>
-<body>	
-
-		<header>
-			
-		</header>
-		<div class="portada">
-			<img class="imagen-portada" src="../src/App/Templates/img/hsportada.jpg">
-		</div>
-		<div class="container row">
-			<div class="block-stats col s9">
-				<div class="filtros">
-					<a class="btn-floating btn-large waves-effect waves-light rogue-icon" href="/hsladderstats/clase/rogue">
-						<img class="responsive-img" src="../src/App/Templates/img/rogueicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light warlock-icon" href="/hsladderstats/clase/warlock">
-						<img class="responsive-img" src="../src/App/Templates/img/warlockicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light warrior-icon" href="/hsladderstats/clase/warrior">
-						<img class="responsive-img" src="../src/App/Templates/img/warrioricon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light druid-icon" href="/hsladderstats/clase/druid">
-						<img class="responsive-img" src="../src/App/Templates/img/druidicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light hunter-icon" href="/hsladderstats/clase/hunter">
-						<img class="responsive-img" src="../src/App/Templates/img/huntericon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light pala-icon" href="/hsladderstats/clase/shaman">
-						<img class="responsive-img" src="../src/App/Templates/img/shamanicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light shaman-icon" href="/hsladderstats/clase/paladin">
-						<img class="responsive-img" src="../src/App/Templates/img/palaicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light mage-icon" href="/hsladderstats/clase/mage">
-						<img class="responsive-img" src="../src/App/Templates/img/mageicon.png">
-					</a>
-					<a class="btn-floating btn-large waves-effect waves-light priest-icon" href="/hsladderstats/clase/priest">
-						<img class="responsive-img" src="../src/App/Templates/img/priesticon.png">
-					</a>
-				</div>
-				<div class="stats row">
-					<div class="stats-totales-clase col s4">
-						<div id="stats-rogue"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-warlock"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-warrior"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-druid"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-hunter"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-shaman"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-paladin"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-mage"></div>
-					</div>
-					<div class="stats-totales-clase col s4">
-						<div id="stats-priest"></div>
-					</div>
-				</div>				
-			</div>
-			<div class="block-links col s3">
-				<div class="menu">
-					<ul>
-						<li><a href="">Inicio</li>
-						<li class="dropdown">
-							<a href="">Clase <i class="mdi-navigation-expand-more"></i></a>
-							<ul class="submenu">
-								<li><a href="">Rogue</a></li>
-								<li><a href="">Warlock</a></li>
-								<li><a href="">Warrior</a></li>
-								<li><a href="">Druid</a></li>
-								<li><a href="">Hunter</a></li>
-								<li><a href="">Paladin</a></li>
-								<li><a href="">Shaman</a></li>
-								<li><a href="">Priest</a></li>
-								<li><a href="">Mage</a></li>								
-							</ul>
-						</li>
-						<li><a href="">Cartas</a></li>
-						<li><a href="">Participa</a></li>
-						<li class="dropdown">
-							<a href="">Links de interés  <i class="mdi-navigation-expand-more"></i></a>
-							<ul class="submenu">
-								<li><a href="https://trackobot.com/">Track-o-Bot</a></li>
-								<li><a href="http://disguisedtoast.com/">disguisedtoast.com</a></li>
-								<li><a href="http://www.liquidhearth.com/forum/constructed-strategy/486640-pr-may-week-4-another-week-of-patron-domination">Power Rank: May Week 4</a></li>
-								<li><a href="http://www.gosugamers.net/hearthstone">Gosugamers: Hearthstone</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<footer>
-			
-		</footer>
-	
+	        var chart = new google.visualization.PieChart(document.getElementById('stats-rogue'));
+	        chart.draw(data_rogue, options_rogue);
+	        chart = new google.visualization.PieChart(document.getElementById('stats-warlock'));
+	        chart.draw(data_warlock, options_warlock);
+	        chart = new google.visualization.PieChart(document.getElementById('stats-warrior'));
+	        chart.draw(data_warrior, options_warrior);
+	        chart = new google.visualization.PieChart(document.getElementById('stats-druid'));
+	        chart.draw(data_druid, options_druid);
+	        chart = new google.visualization.PieChart(document.getElementById('stats-hunter'));
+	        chart.draw(data_hunter, options_hunter);
+	        chart = new google.visualization.PieChart(document.getElementById('stats-shaman'));
+	        chart.draw(data_shaman, options_shaman);
+	        chart = new google.visualization.PieChart(document.getElementById('stats-paladin'));
+	        chart.draw(data_paladin, options_paladin);
+	        chart = new google.visualization.PieChart(document.getElementById('stats-mage'));
+	        chart.draw(data_mage, options_mage);
+	        chart = new google.visualization.PieChart(document.getElementById('stats-priest'));
+	        chart.draw(data_priest, options_priest);
+	      }
+</script>
+<script type="text/javascript">
+		$( document ).ready(function() {
+			var url = window.location.href;
+			console.log(url);
+			if(url.indexOf('rogue') > -1){
+				console.log('rogue');
+				$('.imagen-portada').attr('src','<?php echo BASE_URL ?>/statics/img/hsportadarogue.jpg');
+			}
+			if (url.indexOf('warrior') > -1){
+				console.log('warrior');
+				$('.imagen-portada').attr('src','<?php echo BASE_URL ?>/statics/img/hsportadawarrior.jpg');
+			}
+			if (url.indexOf('warlock') > -1){
+				console.log('warlock');
+				$('.imagen-portada').attr('src','<?php echo BASE_URL ?>/statics/img/hsportadawarlock.jpg');
+			}
+			if (url.indexOf('hunter') > -1){
+				console.log('hunter');
+				$('.imagen-portada').attr('src','<?php echo BASE_URL ?>/statics/img/hsportadahunter.jpg');
+			}
+			if (url.indexOf('druid') > -1){
+				console.log('druid');
+				$('.imagen-portada').attr('src','<?php echo BASE_URL ?>/statics/img/hsportadadruid.jpg');
+			}
+			if (url.indexOf('shaman') > -1){
+				console.log('shaman');
+				$('.imagen-portada').attr('src','<?php echo BASE_URL ?>/statics/img/hsportadashaman.jpg');
+			}
+			if (url.indexOf('paladin') > -1){
+				console.log('paladin');
+				$('.imagen-portada').attr('src','<?php echo BASE_URL ?>/statics/img/hsportadapaladin.jpg');
+			}
+			if (url.indexOf('mage') > -1){
+				console.log('mage');
+				$('.imagen-portada').attr('src','<?php echo BASE_URL ?>/statics/img/hsportadamage.jpg');
+			}
+			if (url.indexOf('priest') > -1){
+				console.log('priest');
+				$('.imagen-portada').attr('src','<?php echo BASE_URL ?>/statics/img/hsportadapriest.jpg');
+			}
+			$('.dropdown').on('click', function(e) {
+				$(this).find('.submenu').toggleClass('active');	
+			});
+		});
+</script>
+<?php include 'stats.html' ; ?>
+		
 </body>
 </html>
