@@ -3,10 +3,11 @@ img { max-width: 100%; height: auto };
 .portada { width: 100%; }
 .portada img { width: 100%; }
 .block-stats { max-width: 65em; margin: 0 auto; }
-.block-stats .filtros { margin: 2em 0; text-align: center; padding: 1em; }
+.block-stats .filtros { margin: 2em 0; text-align: center; padding: 1em; border-bottom: 1px solid #ddd; }
 .block-stats .filtros a { margin: 0.5em; background: none; box-shadow: none; }
 .block-stats .s6 { float: none; margin: 0 auto !important; width: 100%; height: auto; }
-.block-links { margin: 2em 0; padding: 1em; }
-.container .texto { max-width: 65em; margin: 0 auto; }
+.block-links { margin: 2em 0; padding: 1em; border-left: 1px solid #ddd; }
+.container .texto { max-width: 65em; margin: 2em auto; padding: 1em; }
 .submenu { display: none; margin: 10px 20px;}
 .active { display: block; }
+table { margin: 2em 0; padding: 1em; }
